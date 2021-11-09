@@ -22,8 +22,6 @@ function MyTable({ columns, data, update, showDetails }) {
         },
     );
 
-   
-  
     // Render the UI for your table
     return (
         <InfiniteScroll
