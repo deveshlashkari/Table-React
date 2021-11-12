@@ -4,14 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import PostDetails from './postDetails';
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Route path="/" component={App}/>
-      <Route path="/post/details" component={PostDetails}/>
+      <Switch>
+        <Route path="/" exact component={App}/>
+        <Route path="/post/details" exact component={PostDetails}/>
+      </Switch>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

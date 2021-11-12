@@ -11,9 +11,12 @@ const PostDetails = props => {
     }, [location]);
 
     return (
-        <div>
+        <div
+          style={{margin: '20px'}}
+        >
+          <h3>{location?.state?.detail?.title ?? null}</h3>
           {
-            location ? <div>{location.state.detail.title}</div> : 'null'
+            location ? <div>{JSON.stringify(location.state.detail)}</div> : 'null'
           }
           
         </div>

@@ -89,7 +89,7 @@ const showJson = (json: any): void => {
 }
 
   return (
-    <div className="App">
+    <div className="App" style={{margin: '20px'}}>
       {
         error ? <div>Error: {error.message}</div> : null
       }
