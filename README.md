@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# table-filter-search-typescript
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+If you get an error of node version, follow the below steps 
 
-## Available Scripts
+Installing NVM on Ubuntu
+A shell script is available for the installation of nvm on the Ubuntu 20.04 Linux system. Open a terminal on your system or connect a remote system using SSH. Use the following commands to install curl on your system, then run the nvm installer script.
 
-In the project directory, you can run:
+```bash
+sudo apt install curl 
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
+```
 
-### `yarn start`
+The nvm installer script creates environment entry to login script of the current user. You can either logout and login again to load the environment or execute the below command to do the same.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+source ~/.profile   
+```
+Installing Node using NVM
+You can install multiple node.js versions using nvm. And use the required version for your application from installed node.js.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Install the latest version of node.js. Here node is the alias for the latest version.
 
-### `yarn test`
+```bash
+nvm install node 
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To install a specific version of node:
 
-### `yarn build`
+```bash
+nvm install 14
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Working with NVM
+You can use the following command to list installed versions of node for the current user.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+nvm ls 
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+With this command, you can find the available node.js version for the installation.
 
-### `yarn eject`
+```bash
+nvm ls-remote 
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You can also select a different version for the current session. The selected version will be the currently active version for the current shell only.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+nvm use <version>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To find the default Node version set for the current user, type:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+nvm run default --version 
+```
 
-## Learn More
+You can run a Node script with the desired version of node.js using the below command:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+nvm exec 12.18.3 server.js 
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Required Steps -
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+First create a react app using create-react-app with Typescript support
 
-### Analyzing the Bundle Size
+```bash
+npx create-react-app projectname --template typescript
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Packages to Install -
 
-### Making a Progressive Web App
+```bash
+yarn add 
+@babel/preset-env 
+@babel/preset-react 
+@babel/preset-typescript 
+@babel/plugin-syntax-jsx
+@material-ui/core 
+@types/@material-ui
+@types/react-router-dom  
+axios 
+core-js 
+react-router-dom 
+regenerator-runtime
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Create a babel configuration file in the root -
+Name it as - babel.config.js
+and add the following lines -
 
-### Advanced Configuration
+```bash
+"use strict";
+/**
+babel.config.js with useful plugins. 
+*/
+module.exports = function (api) {
+  api.cache(true);
+  api.assertVersion("^7.4.5");
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  const presets = [
+    ["@babel/preset-env"],
+    ["@babel/preset-react", {"runtime": "automatic"}],
+    ["@babel/preset-typescript"]
+  ];
+  const plugins = [
+    ["@babel/plugin-syntax-jsx"],
+    ["@babel/plugin-proposal-class-properties"],
+  ];
 
-### Deployment
+  return {
+    presets,
+    plugins,
+  };
+};
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## You make face issues in setting up routing refer to this link for router v6 , Also refer App.tsx for routing
 
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[react-router v6](https://reacttraining.com/blog/react-router-v6-pre/)
