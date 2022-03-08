@@ -79,7 +79,7 @@ yarn add
 @babel/preset-typescript 
 @babel/plugin-syntax-jsx
 @material-ui/core 
-@types/@material-ui
+@types/material-ui
 @types/react-router-dom  
 axios 
 core-js 
