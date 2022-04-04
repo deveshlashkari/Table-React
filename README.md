@@ -85,6 +85,9 @@ axios
 core-js 
 react-router-dom 
 regenerator-runtime
+match-sorter
+react-infinite-scroll-component
+react-table
 ```
 
 Create a babel configuration file in the root -
