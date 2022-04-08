@@ -3,7 +3,7 @@ import React, {useState, useEffect, useRef, useMemo} from 'react';
 import MyTable from './data-table/MyTable';
 // import styled from 'styled-components'
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useInterval from './hooks/useInterval';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   const [error, setError] = useState<any>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  let history = useHistory();
+  let navigate = useNavigate();
 
   // const cols = [
   //   { header: 'Title', name: 'title' },
@@ -82,10 +82,13 @@ function App() {
   };
 
 const showJson = (json: any): void => {
-    history.push({
-        pathname: '/post/details',
-        state: { detail: json }
-    });
+//     history.push({
+//         pathname: '/post/details',
+//         state: { detail: json }
+//     });
+  
+  navigate("/post/details",{state:{detail:json}});
+   
 }
 
   return (
