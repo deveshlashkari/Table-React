@@ -107,13 +107,4 @@ const showJson = (json: any): void => {
     </div>
   );
 }
-
-export function divide(a: number, b:number): number {
-  if(b === 0){
-    throw new Error('Divide by zero not possible!');
-  }
-
-  return Math.round(a / b);
-}
-
 export default App;
